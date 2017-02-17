@@ -4,19 +4,22 @@ module.exports = function(app, express, db) {
   app.post('/api/auth', function(req, res) {
     console.log('Attempting to create new user');
     //console.log('Reqest body: ', req.body);
-    db.Users.findOrCreate({where: {
-      name: req.body.name,
-      email: req.body.email
+    db.User.findOrCreate({where: {
+      nameFirst: req.body.nameFirst,
+      nameLast: req.body.nameFirst,
+      authId: req.body.authId,
+      email: req.body.email,
+      public: req.body.public || false,
     }})
       .then(function(user) {
         res.send(user)
       });
   });
 
-  app.put('/api/users/:userid', function(req, res) {
-    db.Users.findOne({
+  app.put('/api/users/.userId', function(req, res) {
+    db.User.findOne({
       where: {
-        userid: req.params.userid
+       .userId: req.params.userId
       }
     })
       .then(function(user) {
@@ -25,10 +28,10 @@ module.exports = function(app, express, db) {
       });
   });
 
-  app.get('/api/users/:userid', function(req, res) {
-    db.Users.findOne({
+  app.get('/api/users/.userId', function(req, res) {
+    db.User.findOne({
       where: {
-        userid: req.params.userid
+       .userId: req.params.userId
       }
     })
       .then(function(user) {
@@ -36,10 +39,10 @@ module.exports = function(app, express, db) {
       });
   });
 
-  app.get('/api/goals/:userid', function(req, res) {
-    db.Goals.findAll({
+  app.get('/api/goals/.userId', function(req, res) {
+    db.Goal.findAll({
       where: {
-        userid: req.params.userid
+       .userId: req.params.userId
       }
     })
       .then(function(results) {
@@ -47,15 +50,15 @@ module.exports = function(app, express, db) {
       });
   });
 
-  app.post('/api/goals/:userid', function(req, res) {
-    db.Users.findOne({
+  app.post('/api/goals/.userId', function(req, res) {
+    db.User.findOne({
       where: {
         email: req.params.email
       }
     })
       .then(function(user) {
-        db.Goals.create({
-          userid: req.params.userid,
+        db.Goal.create({
+         .userId: req.params.userId,
           // rest of schema
         })
           .then(function(goal) {
@@ -68,7 +71,7 @@ module.exports = function(app, express, db) {
   });
 
   app.delete('/api/goal/:id', function(req, res) {
-    db.Goals.destroy({
+    db.Goal.destroy({
       where: { id: req.params.id }
     })
       .then(function() {
@@ -77,7 +80,7 @@ module.exports = function(app, express, db) {
   });
 
   app.get('/api/goal/:id', function(req, res) {
-    db.Goals.findOne({
+    db.Goal.findOne({
       where: {
         id: req.params.id
       }
@@ -88,7 +91,7 @@ module.exports = function(app, express, db) {
   });
 
   app.put('/api/goal/:id', function(req, res) {
-    db.Goals.findOne({
+    db.Goal.findOne({
       where: {
         id: req.params.id
       }
