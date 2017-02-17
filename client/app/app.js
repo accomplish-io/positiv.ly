@@ -1,5 +1,6 @@
 angular.module('accomplish', [
   'dashboard',
+  'auth',
   'new',
   'complete',
   'details',
@@ -11,6 +12,10 @@ angular.module('accomplish', [
   .when('/', {
     templateUrl: 'dashboard/dashboard.html',
     controller: 'DashboardCtrl'
+  })
+  .when('/auth', {
+    templateUrl: 'auth/auth.html',
+    controller: 'AuthCtrl'
   })
   .when('/new', {
     templateUrl: 'goal-new/goal-new.html',
@@ -26,4 +31,5 @@ angular.module('accomplish', [
     templateUrl: 'goal-details/goal-details.html',
     controller: 'DetailsCtrl'
   })
+  .otherwise({ redirectTo: '/' });
 });
