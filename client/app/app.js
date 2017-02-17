@@ -2,6 +2,7 @@ angular.module('accomplish', [
   'dashboard',
   'new',
   'complete',
+  'details',
   'ngRoute'
   ])
 .config(function($routeProvider) {
@@ -15,8 +16,14 @@ angular.module('accomplish', [
     templateUrl: 'goal-new/goal-new.html',
     controller: 'NewCtrl'
   })
+  // TODO: add goal :id to route?
   .when('/complete', {
     templateUrl: 'goal-complete/goal-complete.html',
     controller: 'CompleteCtrl'
+  })
+  // TODO: add goal :id to route?
+  .when('/details', {
+    templateUrl: 'goal-details/goal-details.html',
+    controller: 'DetailsCtrl'
   })
 });
