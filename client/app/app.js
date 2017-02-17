@@ -1,6 +1,7 @@
 angular.module('accomplish', [
   'dashboard',
-  'newGoal',
+  'new',
+  'complete',
   'ngRoute'
   ])
 .config(function($routeProvider) {
@@ -12,6 +13,10 @@ angular.module('accomplish', [
   })
   .when('/new', {
     templateUrl: 'goal-new/goal-new.html',
-    controller: 'NewGoalCtrl'
+    controller: 'NewCtrl'
+  })
+  .when('/complete', {
+    templateUrl: 'goal-complete/goal-complete.html',
+    controller: 'CompleteCtrl'
   })
 });

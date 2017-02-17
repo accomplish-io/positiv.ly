@@ -1,4 +1,4 @@
-angular.module('newGoal', [])
-.controller('NewGoalCtrl', function($scope) {
+angular.module('new', [])
+.controller('NewCtrl', function($scope) {
 
 });
