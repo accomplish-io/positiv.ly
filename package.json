@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Application for setting and tracking personal goals",
   "dependencies": {
-    "angular-jwt": "^0.1.9",
-    "angular-lock": "^1.0.5",
-    "auth0-angular": "^4.2.7",
     "body-parser": "^1.16.1",
     "express": "^4.14.1",
     "grunt": "^1.0.1",
