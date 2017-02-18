@@ -1,13 +1,12 @@
-angular.module('accomplish', [
+angular.module('app', [
   'dashboard',
   'auth',
   'new',
   'complete',
   'details',
-  'ngRoute',
   'auth0.lock',
   'angular-jwt',
-  'ui.router'
+  'ui.router',
   ])
 .config(config)
 
@@ -29,21 +28,21 @@ config.$inject = ['$stateProvider', 'lockProvider', '$urlRouterProvider'];
         templateUrl: './app/auth/auth.html',
         controllerAs: 'vm'
       })
-      .when('/new', {
+      .state('/new', {
         url: '/new',
         controller: 'NewCtrl',
         templateUrl: './app/goal-new/goal-new.html',
         controllerAs: 'vm'
       })
   // TODO: add goal :id to route?
-      .when('/complete', {
+      .state('/complete', {
         url: '/auth',
         controller: 'CompleteCtrl',
         templateUrl: './app/goal-complete/goal-complete.html',
         controllerAs: 'vm'
       })
   // TODO: add goal :id to route?
-      .when('/details', {
+      .state('/details', {
         url: '/auth',
         controller: 'DetailsCtrl',
         templateUrl: './app/goal-details/goal-details.html',
@@ -51,8 +50,8 @@ config.$inject = ['$stateProvider', 'lockProvider', '$urlRouterProvider'];
       });
 
     lockProvider.init({
-      clientID: 'AUTH0_CLIENT_ID',
-      domain: 'AUTH0_DOMAIN'
+      clientID: AUTH0_CLIENT_ID,
+      domain: AUTH0_DOMAIN
     });
 
     $urlRouterProvider.otherwise('/home');
