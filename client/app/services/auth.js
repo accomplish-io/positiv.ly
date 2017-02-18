@@ -6,10 +6,19 @@
     .module('app')
     .service('authService', authService);
 
+  authService.$inject = ['lock', 'authManager'];
+
   function authService(lock, authManager) {
 
     function login() {
       lock.show();
+    }
+
+    // Logging out just requires removing the user's
+    // id_token and profile
+    function logout() {
+      localStorage.removeItem('id_token');
+      authManager.unauthenticate();
     }
 
     // Set up the logic for when a user authenticates
@@ -23,6 +32,7 @@
 
     return {
       login: login,
+      logout: logout,
       registerAuthenticationListener: registerAuthenticationListener
     }
   }
