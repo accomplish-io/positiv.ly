@@ -1,8 +1,5 @@
 angular.module('auth', [])
-.controller('AuthCtrl', AuthCtrl);
-AuthCtrl.$inject = ['authService'];
-
-function AuthCtrl(authService) {
+.controller('AuthCtrl', function(authService){
   var vm = this;
   vm.authService = authService;
-}
+});
