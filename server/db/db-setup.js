@@ -1,7 +1,7 @@
 var Sequelize = require('sequelize');
 var db = new Sequelize('accomplish', 'root', '');
 
-Sequelize.authenticate()
+db.authenticate()
   .then(function(err) {
     console.log('Connection has been established successfully.');
   })

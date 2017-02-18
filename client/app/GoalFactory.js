@@ -16,13 +16,10 @@
         }
       });
 
-    const findUser = (id) =>
+    const findUser = (email) =>
       $http({
         method: 'GET',
-        url: 'api/users',
-        data: {
-          id: id
-        }
+        url: `api/users/${email}`,
       });
 
     const updateUser = (email, data) =>
