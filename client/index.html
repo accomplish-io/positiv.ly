@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
       <!-- AUTH0 Viewport settings-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
- <!-- Compiled and minified CSS -->
+ <!-- Compiled and minified CSS Materialize -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
 
-  <!-- Compiled and minified JavaScript -->
+  <!-- Compiled and minified JavaScript Materialize -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
     <title>Accomplish life</title>
 
@@ -35,25 +35,25 @@
 
 </head>
 
-  <body>
+  <body ng-app="app">
   <nav>
     <div class="nav-wrapper blue">
-      <a>Accomplish</a>
+      <a href = "#" class="brand-logo">Accomplish.Life</a>
 
-      <ul style="margin-right: 140px;">
-        <li><a ui-sref="home">Home</a></li>
-        <li>Add a Goal</li>
-        <li>Overall Progress</li>
-        <li>Account Settings</li>
-        <a ui-sref="auth">Auth</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down" style="margin-right: 140px;">
+        <button><str><a ui-sref="home">Home</a></str></button>
+        <li><a ui-sref="goal-new">Add a Goal</a></li>
+        <li><a ui-sref="goal-details">Overall Progress</a></li>
+         <button><a ui-sref="auth">Auth0</a></button>
+
       </ul>
-
+    </div>
   </nav>
 
-  <body  ng-app="app">
 
-  <button><a ui-sref="home">Home</a></button>
-  <button><a ui-sref="auth">Auth0</a></button>
+
+
+
 
 
   <div class="container">
