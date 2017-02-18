@@ -33,7 +33,7 @@ var Goal = db.define('Goal', {
   },
   complete: {
     type: Sequelize.BOOLEAN,
-    defaultValue: true
+    defaultValue: false
   },
   start: {
     type: Sequelize.DATE,
@@ -55,7 +55,7 @@ Goal.hasMany(Backer);
 Backer.belongsTo(User);
 User.hasMany(Backer);
 
-Goal.hasOne(Goal, {as: 'Parent'});
+Goal.hasOne(Goal, {as: 'parent'});
 
 User.sync();
 Goal.sync();
