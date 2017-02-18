@@ -1,10 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-    <!-- AUTH0 Viewport settings-->
+  <head>
+
+    <meta charset="UTF-8">
+      <!-- AUTH0 Viewport settings-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Accomplish life</title>
+
+    <title>Accomplish life</title>
+
+    <!-- Angular -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+    <!-- UI Router -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+    <!-- Auth0 -->
+    <script src="bower_components/auth0-lock/build/lock.js"></script>
+    <script src="bower_components/angular-lock/dist/angular-lock.js"></script>
+    <script src="bower_components/angular-jwt/dist/angular-jwt.js"></script>
+
+    <!-- Program Files -->
+    <script type="text/javascript" src="app/auth/auth0-variables.js"></script>
+    <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="app/app.run.js"></script>
+    <script type="text/javascript" src="app/auth/auth.js"></script>
+    <script type="text/javascript" src="app/dashboard/dashboard.js"></script>
+    <script type="text/javascript" src="app/goal-complete/goal-complete.js"></script>
+    <script type="text/javascript" src="app/goal-details/goal-details.js"></script>
+    <script type="text/javascript" src="app/goal-new/goal-new.js"></script>
+    <script type="text/javascript" src="app/services/auth.js"></script>
+    <script type="text/javascript" src="app/services/user.js"></script>
+
 </head>
 
   <body>
@@ -21,26 +45,8 @@
       </ul>
 
   </nav>
-  <!-- Angular -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
-  <!-- Angular Route -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.min.js"></script>
-  <!-- Auth0 -->
-  <script type="text/javascript" src="https://cdn.auth0.com/js/lock/10.8/lock.min.js"></script>
-  <script src="./node_modules/angular-lock/dist/angular-lock.js"></script>
-  <script src="./node_modules/angular-jwt/dist/angular-jwt.js"></script>
 
-  <!-- Program Files -->
-  <script type="text/javascript" src="app/auth/auth0-variables.js"></script>
-  <script type="text/javascript" src="app/app.js"></script>
-  <script type="text/javascript" src="app/app.run.js"></script>
-  <script type="text/javascript" src="app/auth/auth.js"></script>
-  <script type="text/javascript" src="app/dashboard/dashboard.js"></script>
-  <script type="text/javascript" src="app/goal-complete/goal-complete.js"></script>
-  <script type="text/javascript" src="app/goal-details/goal-details.js"></script>
-  <script type="text/javascript" src="app/goal-new/goal-new.js"></script>
-  <script type="text/javascript" src="app/services/auth.js"></script>
-  <script type="text/javascript" src="app/services/user.js"></script>
+  <body  ng-app="app">
 
   </body>
 </html>
