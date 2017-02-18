@@ -53,13 +53,15 @@ module.exports = function(app, express, db) {
   app.post('/api/goals/:userId', function(req, res) {
     db.User.findOne({
       where: {
-        email: req.params.email
+        email: req.params.userId
       }
     })
       .then(function(user) {
         db.Goal.create({
-         userId: req.params.userId,
-          // rest of schema
+         UserId: user.userId,
+         goalName: req.body.goalName,
+         public: req.body.public,
+         parent: req.body.parent
         })
           .then(function(goal) {
             res.send(goal)
