@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
+    <title>Accomplish life</title>
     <meta charset="UTF-8">
-      <!-- AUTH0 Viewport settings-->
+
+    <!-- AUTH0 Viewport settings-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
     <!-- Compiled and minified CSS Materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
 
     <!-- Compiled and minified JavaScript Materialize -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-    <title>Accomplish life</title>
+
+    <!-- Angular Materialize -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.2/angular-materialize.min.js"></script>
 
     <!-- Angular -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+
     <!-- UI Router -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
+
     <!-- Auth0 -->
     <script src="bower_components/auth0-lock/build/lock.js"></script>
     <script src="bower_components/angular-lock/dist/angular-lock.js"></script>
@@ -36,7 +42,7 @@
 
 </head>
 
-  <body ng-app="app">
+<body ng-app="app">
   <nav>
     <div class="nav-wrapper blue" ng-controller="AuthCtrl">
       <a href = "#" class="brand-logo">Accomplish.Life</a>
@@ -54,6 +60,5 @@
     <div ui-view></div>
   </div>
 
-
-  </body>
+</body>
 </html>
