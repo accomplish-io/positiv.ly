@@ -5,9 +5,6 @@ module.exports = function(app, express, db) {
     console.log('Attempting to create new user');
     //console.log('Reqest body: ', req.body);
     db.User.findOrCreate({where: {
-      nameFirst: req.body.nameFirst,
-      nameLast: req.body.nameFirst,
-      authId: req.body.authId,
       email: req.body.email,
       public: req.body.public || false,
     }})
@@ -16,10 +13,10 @@ module.exports = function(app, express, db) {
       });
   });
 
-  app.put('/api/users/:userId', function(req, res) {
+  app.put('/api/users/:email', function(req, res) {
     db.User.findOne({
       where: {
-       userId: req.params.userId
+       email: req.params.email
       }
     })
       .then(function(user) {
@@ -28,10 +25,10 @@ module.exports = function(app, express, db) {
       });
   });
 
-  app.get('/api/users/:userId', function(req, res) {
+  app.get('/api/users/:email', function(req, res) {
     db.User.findOne({
       where: {
-       userId: req.params.userId
+       email: req.params.email
       }
     })
       .then(function(user) {
@@ -42,7 +39,7 @@ module.exports = function(app, express, db) {
   app.get('/api/goals/:userId', function(req, res) {
     db.Goal.findAll({
       where: {
-       userId: req.params.userId
+       UserId: req.params.userId
       }
     })
       .then(function(results) {
@@ -58,7 +55,7 @@ module.exports = function(app, express, db) {
     })
       .then(function(user) {
         db.Goal.create({
-         UserId: user.userId,
+         UserId: user.id,
          goalName: req.body.goalName,
          public: req.body.public,
          parent: req.body.parent
