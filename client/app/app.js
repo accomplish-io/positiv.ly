@@ -10,10 +10,10 @@ angular.module('app', [
   ])
 .config(config)
 
-config.$inject = ['$stateProvider', 'lockProvider', '$urlRouterProvider'];
+config.$inject = ['$stateProvider', 'lockProvider', '$urlRouterProvider', 'jwtOptionsProvider'];
 
 
-  function config($stateProvider, lockProvider, $urlRouterProvider) {
+  function config($stateProvider, lockProvider, $urlRouterProvider, jwtOptionsProvider) {
 
     $stateProvider
       .state('home', {
@@ -36,14 +36,14 @@ config.$inject = ['$stateProvider', 'lockProvider', '$urlRouterProvider'];
       })
   // TODO: add goal :id to route?
       .state('/complete', {
-        url: '/auth',
+        url: '/complete',
         controller: 'CompleteCtrl',
         templateUrl: './app/goal-complete/goal-complete.html',
         controllerAs: 'vm'
       })
   // TODO: add goal :id to route?
       .state('/details', {
-        url: '/auth',
+        url: '/details',
         controller: 'DetailsCtrl',
         templateUrl: './app/goal-details/goal-details.html',
         controllerAs: 'vm'
@@ -55,4 +55,16 @@ config.$inject = ['$stateProvider', 'lockProvider', '$urlRouterProvider'];
     });
 
     $urlRouterProvider.otherwise('/home');
+
+        // Configuration for angular-jwt
+    jwtOptionsProvider.config({
+      tokenGetter: ['options', function (options) {
+        if (options && options.url.substr(options.url.length - 5) == '.html') {
+          return null;
+        }
+        return localStorage.getItem('id_token');
+      }],
+      whiteListedDomains: ['localhost'],
+      unauthenticatedRedirectPath: '/auth'
+    });
   }
