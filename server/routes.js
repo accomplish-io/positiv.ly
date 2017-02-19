@@ -36,10 +36,10 @@ module.exports = function(app, express, db) {
       });
   });
 
-  app.get('/api/goals/:userId', function(req, res) {
+  app.get('/api/goals/:email', function(req, res) {
     db.Goal.findAll({
       where: {
-       UserId: req.params.userId
+       email: req.params.email
       }
     })
       .then(function(results) {
@@ -54,6 +54,7 @@ module.exports = function(app, express, db) {
       }
     })
       .then(function(user) {
+        // console.log('*******USER: ', user);
         db.Goal.create({
          UserId: user.id,
          goalName: req.body.goalName,

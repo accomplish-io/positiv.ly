@@ -33,14 +33,15 @@
         method: 'POST',
         url: `api/goals/${email}`,
         data: {
-          goalName: text
+          goalName: text,
+          email: email
         }
       });
 
-    const getUserGoals = (userid) =>
+    const getUserGoals = (email) =>
       $http({
         method: 'GET',
-        url: `api/goals/${userid}`
+        url: `api/goals/${email}`
       });
 
     const deleteGoal = (id) =>
