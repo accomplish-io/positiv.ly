@@ -46,11 +46,14 @@ var Backer = db.define('Backer', {
   backerEmail: Sequelize.STRING,
 });
 
+var GoalBacker = db.define('GoalBacker', {
+});
+
 Goal.belongsTo(User);
 User.hasMany(Goal);
 
-Backer.belongsTo(Goal);
-Goal.hasMany(Backer);
+// Backer.belongsTo(Goal);
+// Goal.hasMany(Backer);
 
 Backer.belongsTo(User);
 User.hasMany(Backer);
