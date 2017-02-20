@@ -44,10 +44,6 @@ var Goal = db.define('Goal', {
   }
 });
 
-var Type = db.define('Type', {
-  type: Sequelize.STRING
-});
-
 var Frequency = db.define('Frequency', {
   Monday: Sequelize.BOOLEAN,
   Tuesday: Sequelize.BOOLEAN,
@@ -79,12 +75,8 @@ var Session = db.define('Session', {
 var GoalSession = db.define('GoalSession', {
 });
 
-
 Goal.belongsTo(User);
 User.hasMany(Goal);
-
-Goal.belongsTo(Type);
-Type.hasMany(Goal);
 
 Goal.belongsTo(Frequency);
 Frequency.hasMany(Goal);
@@ -108,7 +100,6 @@ Goal.hasOne(Goal, {as: 'parent'});
 
 User.sync();
 Goal.sync();
-Type.sync();
 Frequency.sync();
 Backer.sync();
 GoalBacker.sync();
