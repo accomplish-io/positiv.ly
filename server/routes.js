@@ -6,7 +6,6 @@ module.exports = function(app, express, db) {
     //console.log('Reqest body: ', req.body);
     db.User.findOrCreate({where: {
       email: req.body.email,
-      public: req.body.public || false,
     }})
       .then(function(user) {
         res.send(user)
