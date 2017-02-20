@@ -56,6 +56,14 @@ var Backer = db.define('Backer', {
 var GoalBacker = db.define('GoalBacker', {
 });
 
+var Session = db.define('Session', {
+  start: Sequelize.DATE,
+  end: Sequelize.END
+})
+
+var GoalSession = db.define('GoalSession', {
+})
+
 Goal.belongsTo(User);
 User.hasMany(Goal);
 
@@ -67,6 +75,12 @@ Goal.hasMany(Backer);
 
 GoalBacker.belongsTo(Backer);
 Backer.hasMany(GoalBacker);
+
+GoalSession.belongsTo(Goal);
+Goal.hasMany(Session);
+
+GoalSession.belongsTo(Session);
+Session.hasMany(GoalSession);
 
 Backer.belongsTo(User);
 User.hasMany(Backer);
