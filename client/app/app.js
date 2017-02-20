@@ -10,10 +10,10 @@ angular.module('app', [
   ])
 .config(config)
 
-config.$inject = ['$stateProvider', 'lockProvider', '$urlRouterProvider', 'jwtOptionsProvider'];
+config.$inject = ['$stateProvider', 'lockProvider', '$urlRouterProvider'];
 
 
-  function config($stateProvider, lockProvider, $urlRouterProvider, jwtOptionsProvider) {
+  function config($stateProvider, lockProvider, $urlRouterProvider) {
 
     $stateProvider
       .state('home', {
@@ -36,14 +36,14 @@ config.$inject = ['$stateProvider', 'lockProvider', '$urlRouterProvider', 'jwtOp
       })
   // TODO: add goal :id to route?
       .state('/complete', {
-        url: '/complete',
+        url: '/auth',
         controller: 'CompleteCtrl',
         templateUrl: './app/goal-complete/goal-complete.html',
         controllerAs: 'vm'
       })
   // TODO: add goal :id to route?
       .state('/details', {
-        url: '/details',
+        url: '/auth',
         controller: 'DetailsCtrl',
         templateUrl: './app/goal-details/goal-details.html',
         controllerAs: 'vm'
@@ -54,10 +54,7 @@ config.$inject = ['$stateProvider', 'lockProvider', '$urlRouterProvider', 'jwtOp
       domain: AUTH0_DOMAIN
     });
 
-    $urlRouterProvider.otherwise('/home');
-
-        // Configuration for angular-jwt
-    jwtOptionsProvider.config({
+     jwtOptionsProvider.config({
       tokenGetter: ['options', function (options) {
         if (options && options.url.substr(options.url.length - 5) == '.html') {
           return null;
@@ -67,4 +64,6 @@ config.$inject = ['$stateProvider', 'lockProvider', '$urlRouterProvider', 'jwtOp
       whiteListedDomains: ['localhost'],
       unauthenticatedRedirectPath: '/auth'
     });
+
+    $urlRouterProvider.otherwise('/home');
   }
