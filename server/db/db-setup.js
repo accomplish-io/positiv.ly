@@ -46,7 +46,22 @@ var Goal = db.define('Goal', {
 
 var Type = db.define('Type', {
   type: Sequelize.STRING
-})
+});
+
+var Frequency = db.define('Frequency', {
+  Monday: Sequelize.BOOLEAN,
+  Tuesday: Sequelize.BOOLEAN,
+  Wednesday: Sequelize.BOOLEAN,
+  Thursday: Sequelize.BOOLEAN,
+  Friday: Sequelize.BOOLEAN,
+  Saturday: Sequelize.BOOLEAN,
+  Sunday: Sequelize.BOOLEAN,
+  weekly: Sequelize.BOOLEAN,
+  biweekly: Sequelize.BOOLEAN,
+  monthly: Sequelize.BOOLEAN,
+  monthDay: Sequelize.INTEGER,
+  weekNum: Sequelize.INTEGER
+});
 
 var Backer = db.define('Backer', {
   backerName: Sequelize.STRING,
@@ -59,16 +74,20 @@ var GoalBacker = db.define('GoalBacker', {
 var Session = db.define('Session', {
   start: Sequelize.DATE,
   end: Sequelize.END
-})
+});
 
 var GoalSession = db.define('GoalSession', {
-})
+});
+
 
 Goal.belongsTo(User);
 User.hasMany(Goal);
 
 Goal.belongsTo(Type);
 Type.hasMany(Goal);
+
+Goal.belongsTo(Frequency);
+Frequency.hasMany(Goal);
 
 GoalBacker.belongsTo(Goal);
 Goal.hasMany(Backer);
