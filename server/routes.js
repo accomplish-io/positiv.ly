@@ -67,7 +67,7 @@ module.exports = function(app, express, db) {
          UserId: user.id,
          goalName: req.body.goalName,
          public: req.body.public,
-         parent: req.body.parent
+         GoalId: req.body.GoalId
         })
           .then(function(goal) {
             res.send(goal)

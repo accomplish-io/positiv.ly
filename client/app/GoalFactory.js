@@ -28,13 +28,14 @@
         data: data
       });
 
-    const createGoal = (text, email) =>
+    const createGoal = (text, email, GoalId, public) =>
       $http({
         method: 'POST',
         url: `api/goals/${email}`,
         data: {
           goalName: text,
-          email: email
+          GoalId: GoalId,
+          public: public || null
         }
       });
 
