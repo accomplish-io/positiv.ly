@@ -1,2 +1,17 @@
 <p>Dashboard View</p>
 <button class="btn btn-primary" ng-click="vm.test()">Test Things</button>
+<div ng-repeat="goal in vm.goals | filter:{complete: false, GoalId: null}">
+    <div class="collapsible-header" style="padding-right: 0px">
+      <ul class="collection with-header">
+        <li class="collection-header">
+          <input ng-click="vm.completeGoal(goal)" type="checkbox" id="{{goal.id}}" ng-checked="{{goal.complete}}"/>
+          <label for="{{goal.id}}" style="display: initial;">{{goal.goalName}}</label>
+          <a ><i class="right material-icons" style="margin: 0px 15px 0px 0px;">settings</i></a>
+        </li>
+        <div ng-repeat="sub in vm.goals | filter: {GoalId: goal.id}">
+          <li class="collection-item">{{sub.goalName}}
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>

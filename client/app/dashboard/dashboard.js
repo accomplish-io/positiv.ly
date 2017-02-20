@@ -17,11 +17,10 @@
         });
       GoalFactory.getUserGoals(vm.payload.email)
         .then(goals => {
-          vm.goals = goals;
-          console.log(vm.goals);
+          vm.goals = goals.data;
         });
     });
 
-    vm.test = () => console.log(vm.user);
+    vm.test = () => console.log(vm.goals);
   });
 }());
