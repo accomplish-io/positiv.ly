@@ -31,13 +31,16 @@ var Goal = db.define('Goal', {
     type: Sequelize.BOOLEAN,
     defaultValue: true
   },
-  complete: {
-    type: Sequelize.BOOLEAN,
-    defaultValue: false
-  },
   start: {
     type: Sequelize.DATE,
     defaultValue: Sequelize.NOW
+  },
+  number: Sequelize.INTEGER,
+  units: Sequelize.STRING,
+  due: Sequelize.DATE,
+  complete: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
   }
 });
 
