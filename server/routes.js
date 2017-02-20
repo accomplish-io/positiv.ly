@@ -36,14 +36,23 @@ module.exports = function(app, express, db) {
   });
 
   app.get('/api/goals/:email', function(req, res) {
-    db.Goal.findAll({
+    db.User.findOne({
       where: {
-       email: req.params.email
+        email: req.params.email
       }
     })
+    .then(function (user) {
+      console.log(user.dataValues.id);
+      db.Goal.findAll({
+        where: {
+         UserId: user.dataValues.id
+        }
+      })
       .then(function(results) {
+        console.log('Results ******************************** ' + results);
         res.send(results);
       });
+    })
   });
 
   app.post('/api/goals/:email', function(req, res) {

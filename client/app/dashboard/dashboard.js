@@ -13,7 +13,13 @@
       GoalFactory.findOrCreateUser(vm.payload.name, vm.payload.email)
         .then(user => {
           vm.user = user.data[0]
-        })
+
+        });
+      GoalFactory.getUserGoals(vm.payload.email)
+        .then(goals => {
+          vm.goals = goals;
+          console.log(vm.goals);
+        });
     });
 
     vm.test = () => console.log(vm.user);
