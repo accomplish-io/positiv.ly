@@ -9,6 +9,7 @@
 
     lock.getProfile(localStorage.getItem('id_token'), function (error, profile) {
       vm.payload = profile;
+      console.log(profile);
       GoalFactory.findOrCreateUser(vm.payload.name, vm.payload.email)
         .then(user => {
           vm.user = user.data[0]
