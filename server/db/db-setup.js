@@ -22,23 +22,22 @@ var User = db.define('User', {
   start: {
     type: Sequelize.DATE,
     defaultValue: Sequelize.NOW
+  },
+  validate: {
+    isUnique: function(value, resp) {
+      var self = this;
+      User.find({where: {email: value}})
+      .then(function(user) {
+        if (user && self.id !== user.id) {
+          return resp('not a unique email address!')
+        }
+        return resp();
+      })
+      .catch(function(err) {
+        return resp(err);
+      })
+    }
   }
-  //,
-  // validate: {
-  //   isUnique: function(value, resp) {
-  //     var self = this;
-  //     User.find({where: {email: value}})
-  //     .then(function(user) {
-  //       if (user && self.id !== user.id) {
-  //         return resp('not a unique email address!')
-  //       }
-  //       return resp();
-  //     })
-  //     .catch(function(err) {
-  //       return resp(err);
-  //     })
-  //   }
-  // }
 });
 
 var Goal = db.define('Goal', {
