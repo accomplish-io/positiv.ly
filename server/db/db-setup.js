@@ -52,8 +52,11 @@ var GoalBacker = db.define('GoalBacker', {
 Goal.belongsTo(User);
 User.hasMany(Goal);
 
-// Backer.belongsTo(Goal);
-// Goal.hasMany(Backer);
+GoalBacker.belongsTo(Goal);
+Goal.hasMany(Backer);
+
+GoalBacker.belongsTo(Backer);
+Backer.hasMany(GoalBacker);
 
 Backer.belongsTo(User);
 User.hasMany(Backer);
