@@ -108,8 +108,18 @@ Goal.hasOne(Goal, {as: 'parent'});
 
 User.sync();
 Goal.sync();
+Type.sync();
+Frequency.sync();
 Backer.sync();
+GoalBacker.sync();
+Session.sync();
+GoalSession.sync();
 
 exports.User = User;
 exports.Goal = Goal;
+exports.Type = Type;
+exports.Frequency = Frequency;
 exports.Backer = Backer;
+exports.GoalBacker = GoalBacker;
+exports.Session = Session;
+exports.GoalSession = GoalSession;
