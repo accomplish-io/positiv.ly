@@ -28,21 +28,21 @@ config.$inject = ['$stateProvider', 'lockProvider', '$urlRouterProvider'];
         templateUrl: './app/auth/auth.html',
         controllerAs: 'vm'
       })
-      .state('/new', {
+      .state('new', {
         url: '/new',
         controller: 'NewCtrl',
         templateUrl: './app/goal-new/goal-new.html',
         controllerAs: 'vm'
       })
   // TODO: add goal :id to route?
-      .state('/complete', {
+      .state('complete', {
         url: '/auth',
         controller: 'CompleteCtrl',
         templateUrl: './app/goal-complete/goal-complete.html',
         controllerAs: 'vm'
       })
   // TODO: add goal :id to route?
-      .state('/details', {
+      .state('details', {
         url: '/auth',
         controller: 'DetailsCtrl',
         templateUrl: './app/goal-details/goal-details.html',
@@ -54,16 +54,16 @@ config.$inject = ['$stateProvider', 'lockProvider', '$urlRouterProvider'];
       domain: AUTH0_DOMAIN
     });
 
-     jwtOptionsProvider.config({
-      tokenGetter: ['options', function (options) {
-        if (options && options.url.substr(options.url.length - 5) == '.html') {
-          return null;
-        }
-        return localStorage.getItem('id_token');
-      }],
-      whiteListedDomains: ['localhost'],
-      unauthenticatedRedirectPath: '/auth'
-    });
+    //  jwtOptionsProvider.config({
+    //   tokenGetter: ['options', function (options) {
+    //     if (options && options.url.substr(options.url.length - 5) == '.html') {
+    //       return null;
+    //     }
+    //     return localStorage.getItem('id_token');
+    //   }],
+    //   whiteListedDomains: ['localhost'],
+    //   unauthenticatedRedirectPath: '/auth'
+    // });
 
     $urlRouterProvider.otherwise('/home');
   }
