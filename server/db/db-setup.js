@@ -22,9 +22,7 @@ var User = db.define('User', {
   start: {
     type: Sequelize.DATE,
     defaultValue: Sequelize.NOW
-=======
   }
-
 });
 
 var Goal = db.define('Goal', {
