@@ -9,6 +9,7 @@
 
     lock.getProfile(localStorage.getItem('id_token'), function (error, profile) {
       vm.payload = profile;
+      console.log('vm.payload ',vm.payload);
       GoalFactory.findOrCreateUser(vm.payload.name, vm.payload.email)
         .then(user => {
           vm.user = user.data[0]
@@ -28,6 +29,13 @@
           });
       });
     vm.goal = '';
+  }
+
+  vm.test = function() {
+    GoalFactory.getUserGoals(vm.payload.email)//reloads the goals dynamically
+          .then(goals => {
+            vm.goals = goals.data;
+          });
   }
 
 });
