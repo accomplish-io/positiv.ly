@@ -18,7 +18,7 @@ config.$inject = ['$stateProvider', 'lockProvider', '$urlRouterProvider'];
     $stateProvider
       .state('home', {
         url: '/home',
-         controller: 'DashboardCtrl',
+        controller: 'DashboardCtrl',
         templateUrl: './app/dashboard/dashboard.html',
         controllerAs: 'vm'
       })
