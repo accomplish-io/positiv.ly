@@ -1,7 +1,17 @@
 
 <p>Dashboard View</p>
+<!--
 <button class="btn btn-primary" ng-click="vm.test()">Test Things</button>
-<div ng-repeat="goal in vm.goals | filter:{complete: false, GoalId: null}">
+Modal Trigger -->
+<div>---------------------</div>
+<div class="col">
+    <a class='btn' data-target='newGoalModal' modal>Add a goal</a>
+</div>
+
+
+
+
+<div ng-repeat="goal in vm.goals | filter:{complete: false, GoalId: null}" ng-controller="DashboardCtrl">
     <div class="collapsible-header" style="padding-right: 0px">
       <ul class="collection with-header">
         <li class="collection-header">
@@ -16,3 +26,19 @@
       </ul>
     </div>
   </div>
+
+<!-- Modal Structure -->
+
+<div id="newGoalModal" class="modal">
+  <div class="modal-content">
+    <div class="row">
+      <form ng-submit="vm.addGoal()">
+        <div class="row">
+          <div class="input-field">
+            <input ng-model="vm.goal" placeholder="Add a New Goal" required>
+          </div>
+          </div>
+      </form>
+   </div>
+  </div>
+</div>
