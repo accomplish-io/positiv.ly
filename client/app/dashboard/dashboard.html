@@ -1,20 +1,22 @@
-
-<p>Dashboard View</p>
-
-<button class="btn btn-primary" ng-click="vm.test()">Test Things</button>
-<!-- Modal Trigger -->
-<div>---------------------</div>
+<h3>Goals</h3>
 <div class="col">
+    <!-- Modal Trigger -->
     <a class='btn' data-target='newGoalModal' modal>Add a goal</a>
 </div>
 
+<br>
+
+<!-- Current Goals -->
 <div ng-repeat="goal in vm.goals | filter:{complete: false, GoalId: null}">
   <div class="collapsible-header" style="padding-right: 0px">
     <ul ng-click='vm.toggleSubs(goal)' class="collection with-header">
       <li class="collection-header">
         <input ng-click="vm.completeGoal(goal)" type="checkbox" id="{{goal.id}}" ng-checked="{{goal.complete}}"/>
         <label for="{{goal.id}}" style="display: initial;">{{goal.goalName}}</label>
-        <a ><i class="right material-icons" style="margin: 0px 15px 0px 0px;">settings</i></a>
+        <!-- TODO: Create link to settings/update -->
+        <!-- <a> -->
+          <i class="material-icons right" style="margin: 0px 15px 0px 0px;">settings</i>
+        <!-- </a> -->
       </li>
       <div ng-show={{goal.subsDisplayed}}>
         <div ng-repeat="sub in vm.goals | filter: {GoalId: goal.id}">
@@ -24,9 +26,8 @@
     </ul>
   </div>
 </div>
-<br>
-<hr>
-<br>
+
+<!-- Completed Goals -->
 <h3>Completed</h3>
 <div ng-repeat="goal in vm.goals | filter:{complete: true, GoalId: null}">
   <div class="collapsible-header" style="padding-right: 0px">
@@ -34,7 +35,10 @@
       <li class="collection-header">
         <input type="checkbox" id="{{goal.id}}" ng-checked="{{goal.complete}}" disabled="disabled" />
         <label for="{{goal.id}}" style="display: initial;">{{goal.goalName}}</label>
-        <a ><i class="right material-icons" style="margin: 0px 15px 0px 0px;">settings</i></a>
+        <!-- TODO: Create link to settings/update -->
+        <!-- <a> -->
+          <i class="material-icons right" style="margin: 0px 15px 0px 0px;">settings</i>
+        <!-- </a> -->
       </li>
       <div ng-repeat="sub in vm.goals | filter: {GoalId: goal.id}">
         <li class="collection-item">{{sub.goalName}}</li>
@@ -44,7 +48,6 @@
 </div>
 
 <!-- Modal Structure -->
-
 <div id="newGoalModal" class="modal">
   <div class="modal-content">
     <div class="row">
@@ -53,7 +56,7 @@
           <div class="input-field">
             <input ng-model="vm.goal" placeholder="Add a New Goal" required>
           </div>
-          </div>
+        </div>
       </form>
    </div>
   </div>
