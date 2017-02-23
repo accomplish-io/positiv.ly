@@ -11,30 +11,28 @@
   <div class="collapsible-header" style="padding-right: 0px">
     <ul class="collection with-header">
       <li class="collection-header">
-        <input ng-click="vm.completeGoal(goal)" type="checkbox" id="{{goal.id}}" ng-checked="{{goal.complete}}"/>
+        <input ng-click="vm.updateCompleteGoal(goal)" type="checkbox" id="{{goal.id}}" ng-checked="{{goal.complete}}"/>
         <label for="{{goal.id}}" style="display: initial;">{{goal.goalName}}</label>
-        <!-- TODO: Create link to settings/update -->
-        <!-- <a> -->
-          <i ng-click="vm.toggleSubs(goal)" class="material-icons right" style="margin: 0px 15px 0px 0px;">settings</i>
           <i ng-click="vm.deleteGoal(goal.id)" class="material-icons right" style="margin: 0px 15px 0px 0px;">delete</i>
-          <a class="btn right" ng-click="vm.toggleAdd(goal)" style="margin: 0px 15px 0px 0px;">Add subgoal</a>
-        <!-- </a> -->
+          <i ng-click="vm.toggleAdd(goal)" class="material-icons right" style="margin: 0px 15px 0px 0px;">library_add</i>
+          <span ng-if="goal.hasChildren">
+            <i ng-click="vm.toggleSubs(goal)" class="material-icons right" style="margin: 0px 15px 0px 0px;">swap_vertical_circle</i>
+          </span>
       </li>
       <div ng-show="goal.addDisplayed" class="row">
         <form ng-submit="vm.addGoal(goal.id)">
           <div class="row">
             <div class="input-field" style="margin: 0px 40px 0px 40px;">
-              <input ng-model="vm.goal" placeholder="Add a New Goal" required>
+              <input ng-model="vm.goal" placeholder="Add a New Sub-Goal" required>
             </div>
           </div>
         </form>
-     </div>
+      </div>
       <div ng-show="goal.subsDisplayed">
-        <div ng-repeat="sub in vm.goals | filter: {GoalId: goal.id}">
+        <div ng-repeat="sub in vm.goals | filter: {GoalId: goal.id}:true">
           <li class="collection-item">
-            <input ng-click="vm.completeGoal(sub)" type="checkbox" id="{{sub.id}}" ng-checked="{{sub.complete}}"/>
-            <label for="{{sub.id}}" style="display: initial;">{{sub.goalName}}
-            </label>
+            <input ng-click="vm.updateCompleteGoal(sub)" type="checkbox" id="{{sub.id}}" ng-checked="{{sub.complete}}"/>
+            <label for="{{sub.id}}" style="display: initial;">{{sub.goalName}}</label>
             <i ng-click="vm.deleteGoal(sub.id)" class="material-icons right" style="margin: 0px 15px 0px 0px;">delete</i>
           </li>
         </div>
@@ -49,17 +47,20 @@
   <div class="collapsible-header" style="padding-right: 0px">
     <ul class="collection with-header">
       <li class="collection-header">
-        <input type="checkbox" id="{{goal.id}}" ng-checked="{{goal.complete}}" disabled="disabled" />
+        <input ng-click="vm.updateCompleteGoal(goal)" type="checkbox" id="{{goal.id}}" ng-checked="{{goal.complete}}"  />
         <label for="{{goal.id}}" style="display: initial;">{{goal.goalName}}</label>
-        <!-- TODO: Create link to settings/update -->
-        <!-- <a> -->
-          <i class="material-icons right" style="margin: 0px 15px 0px 0px;">settings</i>
           <i ng-click='vm.deleteGoal(goal.id)' class="material-icons right" style="margin: 0px 15px 0px 0px;">delete</i>
-        <!-- </a> -->
+          <span ng-if="goal.hasChildren">
+            <i ng-click="vm.toggleSubs(goal)" class="material-icons right" style="margin: 0px 15px 0px 0px;">swap_vertical_circle</i>
+          </span>
       </li>
-      <div ng-repeat="sub in vm.goals | filter: {GoalId: goal.id}">
-        <li class="collection-item">{{sub.goalName}}</li>
-        <i ng-click='vm.deleteGoal(sub.id)' class="material-icons right" style="margin: 0px 15px 0px 0px;">delete</i>
+      <div ng-show="goal.subsDisplayed">
+        <div ng-repeat="sub in vm.goals | filter: {GoalId: goal.id}:true">
+          <li class="collection-item">
+            <input type="checkbox" id="{{sub.id}}" ng-checked="{{sub.complete}}" disabled="disabled" />
+            <label for="{{sub.id}}" style="display: initial;">{{sub.goalName}}</label>
+          </li>
+        </div>
       </div>
     </ul>
   </div>
