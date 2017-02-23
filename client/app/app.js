@@ -6,7 +6,7 @@ angular.module('app', [
   'details',
   'auth0.lock',
   'angular-jwt',
-  'ui.router',
+  'ui.router'
   ])
 .config(config)
 
@@ -18,7 +18,7 @@ config.$inject = ['$stateProvider', 'lockProvider', '$urlRouterProvider'];
     $stateProvider
       .state('home', {
         url: '/home',
-        controller: 'DashboardCtrl',
+         controller: 'DashboardCtrl',
         templateUrl: './app/dashboard/dashboard.html',
         controllerAs: 'vm'
       })
