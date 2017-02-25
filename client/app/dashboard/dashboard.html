@@ -25,7 +25,7 @@
           <i class="material-icons right" style="margin: 10px 15px 10px 0px;">insert_chart</i>
         </a>
         <!-- Create New Sub Goal -->
-        <a data-target="newSubGoalModal" style="color: black;" modal>
+        <a ng-click="vm.parentGoal = goal.id" data-target="newSubGoalModal" style="color: black;" modal>
           <i class="material-icons right" style="margin: 10px 15px 10px 0px;">library_add</i>
         </a>
         <!-- Display Sub Goals -->
@@ -189,7 +189,7 @@
       </datepicker>
       <!-- Submit Button -->
       <div class="right">
-        <a href="#!" ng-click="vm.addGoal(goal.id)" class="btn modal-action modal-close waves-effect waves-green btn btn-flat">Submit Goal!</a>
+        <a href="#!" ng-click="vm.addGoal(vm.parentGoal)" class="btn modal-action modal-close waves-effect waves-green btn btn-flat">Submit Goal!</a>
       </div>
     </div>
   </div>
