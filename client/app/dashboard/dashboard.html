@@ -34,20 +34,6 @@
         </span>
       </li>
       </br>
-
-      <!-- TODO: Refactor into modal, then get rid of this code -->
-      <!-- Add SubGoal Drop Box Input Field
-      <div ng-show="goal.addDisplayed" class="row">
-        <form ng-submit="vm.addGoal(goal.id)">
-          <div class="row">
-            <div class="input-field" style="margin: 0px 40px 0px 40px;">
-              <input ng-model="vm.goal" placeholder="Add a New Sub-Goal" required>
-            </div>
-          </div>
-        </form>
-      </div>
-      -->
-
       <!-- Sub Goals -->
       <div ng-show="goal.subsDisplayed">
         <div ng-repeat="sub in vm.goals | filter: {GoalId: goal.id}:true">
