@@ -124,6 +124,7 @@
           });
         // Reset entry field
         vm.goal = '';
+        vm.verb = '';
         vm.number = null;
         vm.date = null;
         vm.units = '';
