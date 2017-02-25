@@ -9,7 +9,8 @@ module.exports = function(grunt) {
                 'npm install',
                 'cd client',
                 'bower install',
-                'cd ..'
+                'cd ..',
+                'nodemon server/server.js'
              ].join('&&')
          }
      },
