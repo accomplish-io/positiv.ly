@@ -3,6 +3,18 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
+     shell: {
+         multiple: {
+             command: [
+                'npm install',
+                'cd client',
+                'bower install',
+                'cd ..'
+             ].join('&&')
+         }
+     },
+
+
     ngAnnotate: {
       options: {
         singleQuotes: true
@@ -18,7 +30,7 @@ module.exports = function(grunt) {
         separator: ';'
       },
       dist: {
-        src: ['client/**/*.js', 'server/**/*.js', 'spec/**/*.js'],
+        src: ['client/app/GoalFactory.js'],
         dest: 'dist/<%= pkg.name %>.js'
       }
     },
@@ -28,7 +40,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'dist/<%= pkg.name %>.min.js': ['dist/<%= pkg.name %>.ng.js']
+          'dist/<%= pkg.name %>.min.js': ['dist/<%= pkg.name %>.js']
         }
       }
     },
@@ -38,12 +50,15 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-ng-annotate');
+  // grunt.loadNpmTasks('grunt-contrib-uglify');
+  // grunt.loadNpmTasks('grunt-contrib-watch');
+  // grunt.loadNpmTasks('grunt-contrib-concat');
+  // grunt.loadNpmTasks('grunt-ng-annotate');
+  // grunt.loadNpmTasks('grunt-bower');
+  // grunt.loadNpmTasks('grunt-npm-install');
+  // grunt.loadNpmTasks('grunt-bower-install');
+  grunt.loadNpmTasks('grunt-shell');
 
-
-  grunt.registerTask('default', ['concat', 'ngAnnotate', 'uglify']);
+  grunt.registerTask('default', ['shell']);
 
 };
