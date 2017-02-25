@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Application for setting and tracking personal goals",
   "scripts": {
-    "start": "nodemon server/server.js"
+    "start": "npm install && grunt"
   },
   "dependencies": {
     "body-parser": "^1.16.1",
@@ -20,10 +20,14 @@
     "eslint": "^3.16.1",
     "eslint-config-angular": "^0.5.0",
     "eslint-plugin-angular": "^1.6.1",
+    "grunt-bower": "^0.21.4",
+    "grunt-bower-install": "^1.6.0",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-uglify": "^2.1.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-ng-annotate": "^3.0.0",
+    "grunt-npm-install": "^0.3.1",
+    "grunt-shell": "^2.1.0",
     "karma": "^1.5.0",
     "karma-chrome-launcher": "^2.0.0",
     "karma-jasmine": "^1.1.0"
