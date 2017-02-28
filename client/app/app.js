@@ -55,5 +55,5 @@ function config($stateProvider, lockProvider, $urlRouterProvider, jwtOptionsProv
     loginState: 'auth'
   });
 
-  $urlRouterProvider.otherwise('/auth');
+  $urlRouterProvider.otherwise('/home');
 };

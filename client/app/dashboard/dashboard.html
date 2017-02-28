@@ -4,7 +4,7 @@
       <ul id="nav-mobile" class="right hide-on-small-and-down" style="margin-right: 30px;">
         <li><a ui-sref="home">Goal Dashboard</a></li>
         <li ><a ng-if="vm.displayLoginButton()" ui-sref="auth">Log In</a></li>
-        <li ><a ng-if="!vm.displayLoginButton()" ui-sref="home" ng-click="authService.logout()">Log Out</a></li>
+        <li ><a ng-if="!vm.displayLoginButton()" ui-sref="auth" ng-click="authService.logout()">Log Out</a></li>
       </ul>
     </div>
   </nav>
@@ -31,13 +31,13 @@
         <canvas id="base" height="20" width="180" class="chart-horizontal-bar" chart-data=goal.progress chart-labels="vm.labels" chart-options="vm.options" style="height: 40px"></canvas>
         <!-- Delete Goal -->
         <i ng-click="vm.deleteGoal(goal.id)" class="material-icons right" style="margin: 10px 15px 10px 0px;">delete_forever</i>
-        <!-- Goal Details -->
-        <a ng-click="vm.prepUpdate(goal)" data-target="goalDetailsModal" ng-style="{color: goal.number ? 'black' : '#d9d9d9', 'pointer-events': goal.number ? 'auto' : 'none'}" modal>
-          <i class="material-icons right" style="margin: 10px 15px 10px 0px;">settings</i>
-        </a>
         <!-- Add Progress -->
         <a ng-click="vm.progressGoal = goal" data-target="goalProgressModal" ng-style="{color: goal.number ? 'black' : '#d9d9d9', 'pointer-events': goal.number ? 'auto' : 'none'}" modal>
           <i class="material-icons right" style="margin: 10px 15px 10px 0px;">insert_chart</i>
+        </a>
+        <!-- Goal Details -->
+        <a ng-click="vm.prepUpdate(goal)" data-target="goalDetailsModal" style="color: black;" modal>
+          <i class="material-icons right" style="margin: 10px 15px 10px 0px;">settings</i>
         </a>
         <!-- Create New Sub Goal -->
         <a ng-click="vm.parentGoal = goal.id" data-target="newSubGoalModal" style="color: black;" modal>
