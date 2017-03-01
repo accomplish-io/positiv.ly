@@ -104,66 +104,72 @@
 <div id="newGoalModal" class="modal" style="width: 85%; height: 70%;">
   <!-- Submit Entire Goal -->
   <div class="right">
-    <a ng-click="vm.addGoal()" class="btn-floating btn-large waves-effect waves-light red odal-action modal-close"><i class="material-icons">add</i></a>
+    <a ng-click="vm.addGoal()" class="btn-floating btn-large waves-effect waves-light red modal-action modal-close"><i class="material-icons">add</i></a>
   </div>
   <!-- Modal Form -->
   <div class="modal-content">
     <div class="row">
-      <div class="row">
-        <div class="input-field">
-          <input ng-model="vm.goal" placeholder="Add a New Goal" required>
-        </div>
+      <div class="input-field">
+        <input ng-model="vm.goal" placeholder="Add a New Goal" required>
       </div>
-      <div class="row">
-        <!-- Dropdown Trigger -->
-        <a class="dropdown-button btn" href="javascript:void(0);" data-activates="goalType" dropdown data-hover="true">How will you finish your goal?</a>
-        <!-- Dropdown Structure -->
-        <ul id="goalType" class="dropdown-content">
-          <li><a ng-click="vm.quantity = false">Do once</a></li>
-          <li><a ng-click="vm.quantity = true">Quantify your goal</a></li>
-        </ul>
+    </div>
+    <div class="row">
+     <!-- Dropdown Trigger -->
+      <a class="dropdown-button btn" href="javascript:void(0);" data-activates="goalType" dropdown data-hover="true">How will you finish your goal?</a>
+     <!-- Dropdown Structure -->
+      <ul id="goalType" class="dropdown-content">
+        <li><a ng-click="vm.quantity = false">Do once</a></li>
+        <li><a ng-click="vm.quantity = true">Quantify your goal</a></li>
+      </ul>
+    </div>
+    <div class="row" ng-show="vm.quantity">
+      <div style="display: inline-block;">I will</div>
+      <!-- TODO: Make into main goal title -->
+      <div input-field style="display: inline-block;">
+        <input type="text" ng-model="vm.verb" length="20">
+        <label>goal</label>
       </div>
-      <div class="row" ng-show="vm.quantity">
-        <div style="display: inline-block;">I will</div>
-        <!-- TODO: Make into main goal title -->
-        <div input-field style="display: inline-block;">
-          <input type="text" ng-model="vm.verb" length="20">
-          <label>goal</label>
-        </div>
-        <span style="display: inline-block;">at least</span>
-        <div input-field style="display: inline-block;">
-          <input type="number" ng-required="number" ng-model="vm.number" length="10">
-          <label>target</label>
-        </div>
-        <div input-field style="display: inline-block;">
-          <input type="text" ng-model="vm.units" length="10">
-          <label>units</label>
-        </div>
-        <!-- End of TODO -->
+      <span style="display: inline-block;">at least</span>
+      <div input-field style="display: inline-block;">
+        <input type="number" ng-required="number" ng-model="vm.number" length="10">
+        <label>target</label>
       </div>
+      <div input-field style="display: inline-block;">
+        <input type="text" ng-model="vm.units" length="10">
+        <label>units</label>
+      </div>
+    </div>
       <!-- Calendar -->
-      <div>
-      <datepicker>
-        <input ng-model="vm.date" type="text" placeholder="Add an end date for your goal" required/>
-      </datepicker>
-      </div>
+
+    <datepicker>
+      <input ng-model="vm.date" type="text" placeholder="Add an end date for your goal" required/>
+    </datepicker>
+
       <!-- Add backers -->
-        <div>
-          <a ng-show="!vm.atLeastOneBacker" class="btn" ng-click="vm.addBacker()">Add a backer</a>
-          <a ng-show="vm.atLeastOneBacker" class="btn" ng-click="vm.addBacker()">Add another backer</a>
-          <form ng-show="vm.showBackerInput" ng-submit="vm.submitBacker()">
-            <input ng-model="vm.backerName" type="text" placeholder="Enter backer's name" required/>
-            <br>
-            <input ng-model="vm.backerEmail" type="text" placeholder="Enter backer's email"required/>
-            <button class="btn waves-effect waves-light" type="submit" name="action">Submit Backer
-            <i class="material-icons right">send</i>
-            </button>
-          </form>
+    <div>
+      <a ng-show="!vm.atLeastOneBacker" class="btn" ng-click="vm.addBacker()">Add a backer</a>
+      <a ng-show="vm.atLeastOneBacker" class="btn" ng-click="vm.addBacker()">Add another backer</a>
+      <form ng-show="vm.showBackerInput" ng-submit="vm.submitBacker()">
+        <div ng-show="!!vm.existingBackers.length" class="right">
+        <button class="waves-effect waves-green btn btn-flat" ng-click="vm.toggleCollapsible()">Show existing backers</button>
+        <ul ng-show="vm.showCollapsible" class="collapsible popout" data-collapsible="accordion" watch>
+          <li ng-repeat="backer in vm.existingBackers">
+            <div class="collapsible-header" ng-click="vm.addExistingBacker(backer)"><i></i>{{backer.backerName}}
+            </div>
+          </li>
+        </ul>
         </div>
-      </div>
+        <input ng-model="vm.backerName" type="text" placeholder="Enter backer's name" required/>
+        <br>
+        <input ng-model="vm.backerEmail" type="text" placeholder="Enter backer's email"required/>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit Backer
+          <i class="material-icons right">send</i>
+        </button>
+      </form>
     </div>
   </div>
 </div>
+
 
 <!-- Add Sub Goal Modal -->
 <div id="newSubGoalModal" class="modal" style="width: 85%; height: 70%;">

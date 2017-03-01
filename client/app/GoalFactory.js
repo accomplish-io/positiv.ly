@@ -79,20 +79,20 @@
         url: `api/progress/${goalId}`
       });
 
-    const addBacker = (backer) => {
+    const addBacker = (backer) =>
       $http({
         method: 'POST',
         url: 'api/backers',
         data: backer
       });
-    };
 
-    const getBackers = (userId) => {
+
+    const getBackers = (userId) =>
       $http({
         method: 'GET',
         url: `api/backers/${userId}`
       });
-    };
+
 
     return {
       findOrCreateUser: findOrCreateUser,
