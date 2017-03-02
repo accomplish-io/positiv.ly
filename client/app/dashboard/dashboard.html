@@ -105,10 +105,7 @@
 
   <!-- Add Goal Modal -->
   <div id="newGoalModal" class="modal" style="width: 60%; height: 160%;">
-    <!-- Submit Entire Goal -->
-    <div class="right">
-      <a ng-click="vm.addGoal()" class="btn-floating btn-large waves-effect waves-light light-blue darken-4 modal-action modal-close" style="margin-top: 10px; margin-right: 10px;"><i class="material-icons">add</i></a>
-    </div>
+
     <!-- Modal Form -->
     <div class="modal-content center">
       <h3>Add a Goal</h3>
@@ -172,6 +169,10 @@
       <datepicker style="margin-left: 23%; width: 54%;">
         <input ng-model="vm.date" type="text" placeholder="Add an end date for your goal" required/>
       </datepicker>
+    </div>
+     <!-- Submit Entire Goal -->
+    <div class="right">
+      <a ng-click="vm.addGoal()" class="btn-floating btn-large waves-effect waves-light light-blue darken-4 modal-action modal-close" style="margin-top: 10px; margin-right: 10px;"><i class="material-icons">add</i></a>
     </div>
   </div>
 
