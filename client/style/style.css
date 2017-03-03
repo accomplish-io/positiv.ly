@@ -22,13 +22,12 @@ html {
 
 .input-field input:focus + label {
    color: #01579b !important;
- }
- /* label underline focus color */
- .row .input-field input:focus {
+}
+
+.row .input-field input:focus {
    border-bottom: 1px solid #01579b  !important;
    box-shadow: 0 1px 0 0 #01579b  !important
- }
-
+}
 
 .statement {
   font-family: "pollen-web",serif;
