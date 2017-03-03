@@ -39,7 +39,7 @@
           <!-- Delete Goal Modal -->
           <div id="deleteGoalModal" class="modal" style="width: 30%; height: 20%;">
             <div class="modal-content center">
-              <span class="tk-pollen-web" style="color:#01579b; font-size: 125%;">Delete your main goal?</span>
+              <span class="tk-pollen-web ldblue" style="font-size: 125%;">Delete your main goal?</span>
               <br>
               <a class="waves-effect waves-light light-blue darken-4 btn-medium modal-action modal-close tk-pollen-web" ng-click="vm.deleteGoal(goal.id)" style="color:white;">Yes</a>
               <a class="waves-effect waves-light light-blue darken-4 btn-medium modal-action modal-close tk-pollen-web" style="color:white;">No</a>
@@ -91,7 +91,7 @@
       <ul class="collection with-header">
         <li class="collection-header">
           <!-- Checkbox -->
-          <input ng-click="vm.updateCompleteGoal(goal)" type="checkbox" id="{{goal.id}}" ng-checked="{{goal.complete}}"  />
+          <input ng-click="vm.updateCompleteGoal(goal)" type="checkbox" class="checkboxColor" id="{{goal.id}}" ng-checked="{{goal.complete}}"  />
           <!-- Goal Name -->
           <label for="{{goal.id}}" style="display: initial;">{{goal.goalName}}</label>
           <!-- Delete Goal -->
@@ -118,7 +118,7 @@
   <div id="newGoalModal" class="modal" style="width: 60%; height: 160%;">
     <!-- Modal Form -->
     <div class="modal-content center">
-      <h3 class="tk-pollen-web" style="color:#01579b;">Add a Goal</h3>
+      <h3 class="tk-pollen-web ldblue">Add a Goal</h3>
       <div class="row">
         <div class="input-field" style="margin-left: 23%; width: 54%;">
           <input ng-model="vm.goal" placeholder="Add a New Goal" required>
@@ -129,11 +129,11 @@
         <a class="dropdown-button btn light-blue darken-4" href="javascript:void(0);" data-activates="goalType" dropdown data-hover="true">How will you finish your goal?</a>
        <!-- Dropdown Structure -->
         <ul id="goalType" class="dropdown-content">
-          <li><a ng-click="vm.quantity = false" style="color:#01579b">Do once</a></li>
-          <li><a ng-click="vm.quantity = true" style="color:#01579b">Quantify your goal</a></li>
+          <li><a g-click="vm.quantity = false"><span class="ldblue">Do once</span></a></li>
+          <li><a ng-click="vm.quantity = true"><span class="ldblue">Quantify your goal</span></a></li>
         </ul>
       </div>
-      <div class="row" ng-show="vm.quantity" style="color:#01579b" margin-left: 23%; width: 54%;">
+      <div class="row ldblue" ng-show="vm.quantity" margin-left: 23%; width: 54%;">
         <span style="display: inline-block;">I will</span>
         <!-- TODO: Make into main goal title -->
         <span input-field style="display: inline-block; width: 20%;">
@@ -191,7 +191,7 @@
   <!-- Add Sub Goal Modal -->
   <div id="newSubGoalModal" class="modal" style="width: 60%; height: 160%;">
     <div class="modal-content center">
-      <h3 style="color:#01579b">Add a Sub-Goal</h3>
+      <h3 class="ldblue">Add a Sub-Goal</h3>
       <div class="row">
         <div class="row">
           <div class="input-field" style="margin-left: 23%; width: 54%;">
@@ -241,7 +241,7 @@
   <!-- Update Main Goal Progress Modal -->
   <div id="goalProgressModal" class="modal" style="width: 45%; height: 45%;">
     <div class="modal-content center">
-      <h3 style="color:#01579b">Add Progress</h3>
+      <h3 class="ldblue">Add Progress</h3>
       <div class="row">
         <!-- Add to Number -->
         <span style="display: inline-block;">Add</span>
@@ -261,7 +261,7 @@
   <!-- Update Sub Goal Progress Modal -->
   <div id="subProgressModal" class="modal" style="width: 45%; height: 45%;">
     <div class="modal-content center">
-      <h3 style="color:#01579b">Add Progress</h3>
+      <h3 class="ldblue">Add Progress</h3>
       <div class="row">
         <!-- Add to Number -->
         <span style="display: inline-block;">Add</span>
@@ -281,7 +281,7 @@
   <!-- Goal Details Modal vm.updateGoal-->
   <div id="goalDetailsModal" class="modal" style="width: 85%; height: 160%;">
     <div class="modal-content">
-      <h3 style="color:#01579b">Goal Details</h3>
+      <h3 class="ldblue">Goal Details</h3>
       <br>
       <div ng-if="vm.goal" style="width: 85%; height: 100%;">
         <canvas id="line" height=50 width=110 class="chart chart-line" chart-data="vm.goalDetail.progressRange" chart-labels="vm.goalDetail.dateRange" chart-series="vm.lineChart.series" chart-labels="vm.goalDetail.label" chart-options="vm.lineChart.options"></canvas>
