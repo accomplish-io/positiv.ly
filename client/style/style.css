@@ -24,16 +24,16 @@ html {
 }
 
 .input-field input:focus + label {
-   color: #01579b !important;
+  color: #01579b !important;
 }
 
 .row .input-field input:focus {
-   border-bottom: 1px solid #01579b  !important;
-   box-shadow: 0 1px 0 0 #01579b  !important
+  border-bottom: 1px solid #01579b  !important;
+  box-shadow: 0 1px 0 0 #01579b  !important
 }
 
 .input-field input:focus + label {
-   color: #01579b !important;
+  color: #01579b !important;
 }
 
 .checkboxColor:checked + label:before {
