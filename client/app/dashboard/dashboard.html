@@ -119,11 +119,11 @@
         <a class="dropdown-button btn light-blue darken-4" href="javascript:void(0);" data-activates="goalType" dropdown data-hover="true">How will you finish your goal?</a>
        <!-- Dropdown Structure -->
         <ul id="goalType" class="dropdown-content">
-          <li><a ng-click="vm.quantity = false">Do once</a></li>
-          <li><a ng-click="vm.quantity = true">Quantify your goal</a></li>
+          <li><a ng-click="vm.quantity = false" style="color:#01579b">Do once</a></li>
+          <li><a ng-click="vm.quantity = true" style="color:#01579b">Quantify your goal</a></li>
         </ul>
       </div>
-      <div class="row" ng-show="vm.quantity" style="margin-left: 23%; width: 54%;">
+      <div class="row" ng-show="vm.quantity" style="color:#01579b" margin-left: 23%; width: 54%;">
         <span style="display: inline-block;">I will</span>
         <!-- TODO: Make into main goal title -->
         <span input-field style="display: inline-block; width: 20%;">
@@ -147,7 +147,7 @@
         <a ng-show="vm.atLeastOneBacker" class="btn light-blue darken-4" ng-click="vm.addBacker()">Add another backer</a>
         <form ng-show="vm.showBackerInput" ng-submit="vm.submitBacker()">
           <div ng-show="!!vm.existingBackers.length" class="">
-            <button class="waves-effect waves-green btn btn-flat light-blue darken-4" ng-click="vm.toggleCollapsible()">Show existing backers</button>
+            <button class="waves-effect waves-green btn btn-flat light-blue darken-4" ng-click="vm.toggleCollapsible()" style="color:white">Show existing backers</button>
             <ul class="center" ng-show="vm.showCollapsible" class="collapsible popout" data-collapsible="accordion" style="margin-left: 35%; width: 30%;" watch>
               <li ng-repeat="backer in vm.existingBackers">
                 <div class="collapsible-header" ng-click="vm.addExistingBacker(backer)"><i></i>{{backer.backerName}}
@@ -166,8 +166,8 @@
       </div>
       <br>
       <!-- Calendar -->
-      <datepicker style="margin-left: 23%; width: 54%;">
-        <input ng-model="vm.date" type="text" placeholder="Add an end date for your goal" required/>
+      <datepicker class="datepickercss" style="margin-left: 23%; width: 54%;">
+        <input class="dateinput" ng-model="vm.date" type="text" placeholder="Add an end date for your goal" required/>
       </datepicker>
     </div>
      <!-- Submit Entire Goal -->
