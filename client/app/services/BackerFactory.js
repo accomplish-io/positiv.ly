@@ -31,10 +31,19 @@
       });
     };
 
+    var welcomeBacker = function (backer) {
+      return $http({
+        method: 'POST',
+        url: 'api/backers/email',
+        data: backer
+      });
+    }
+
     return {
       addBacker: addBacker,
       getBackers: getBackers,
-      deleteBacker: deleteBacker
+      deleteBacker: deleteBacker,
+      welcomeBacker: welcomeBacker
     };
   };
 })();

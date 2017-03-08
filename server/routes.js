@@ -194,6 +194,30 @@ module.exports = function(app, express, db, wk) {
     });
   });
 
+  app.post('/api/backers/email', function(req, res) {
+    var backer = req.body.data[0]
+    backerName = backer.backerName;
+    backerEmail = backer.backerEmail;
+    GoalId = backer.GoalId;
+    UserId = backer.UserId;
+    console.log(backer);
+    console.log("****")
+    console.log(GoalId);
+    db.Goal.findOne({
+      where: {
+        id: GoalId
+      },
+      include: [db.User]
+    })
+    .then(function(goal) {
+      //goal properties are goal.data
+      //user properties are goal.data.User
+      //ex. authId = goal.data.User.authId
+      console.log(goal.User.email)
+      res.send(goal);
+    });
+  });
+
   app.delete('/api/backers/:id', function(req, res) {
     db.Backer.destroy({
       where: { id: req.params.id }
