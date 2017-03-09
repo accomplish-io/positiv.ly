@@ -71,7 +71,10 @@
           .then(function(goal) {
             vm.currentBackers.forEach(function(backer) {
               backer.GoalId = goal.data.id;
-              BackerFactory.addBacker(backer);
+              BackerFactory.addBacker(backer)
+                .then(function(backerX) {
+                  BackerFactory.welcomeBacker(backerX)
+                });
             });
             vm.currentBackers = [];
           });

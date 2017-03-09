@@ -163,17 +163,17 @@ module.exports = function(app, express, db, wk, email) {
         goal.update(req.body);
         if (req.body.complete === true) {
           //send email
-          db.Backer.findAll({
+          db.GoalBacker.findAll({
             where: {
               GoalId: req.params.id
             },
-            include: [db.User]
+            include: [{model: db.Backer, include: db.User}]
           })
           .then(function(backerArr) {
-            backerArr.forEach(backer => {
-              email.goalCompleteEmail(backer.User.authId, backer.backerEmail, backer.backerName, goal.goalName)
+            backerArr.forEach(goalBacker => {
+              email.goalCompleteEmail(goalBacker.Backer.User.authId, goalBacker.Backer.backerName, goalBacker.Backer.backerEmail, goal.goalName);
             });
-          })
+          });
           //delete backers
         }
         res.send(goal);
@@ -213,9 +213,9 @@ module.exports = function(app, express, db, wk, email) {
   });
 
   app.post('/api/backers/email', function(req, res) {
-    var backer = req.body.data[0];
-    var backerName = backer.backerName;
-    var backerEmail = backer.backerEmail;
+    var backer = req.body.config.data;
+    var backerName = backer.name;
+    var backerEmail = backer.email;
     var GoalId = backer.GoalId;
     db.Goal.findOne({
       where: {
@@ -224,10 +224,7 @@ module.exports = function(app, express, db, wk, email) {
       include: [db.User]
     })
     .then(function(goal) {
-      //user properties are goal.User
-      //ex. authId = goal.User.authId
-      // console.log(goal.User.email)
-      email.newGoalEmail(goal.User.authId, backerEmail, backerName, goal.goalName);
+      email.newGoalEmail(goal.User.authId, backerName, backerEmail, goal.goalName);
       res.send(goal);
     });
   });
