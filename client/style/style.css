@@ -130,7 +130,7 @@ input:focus#calen {
   padding-right: 5vw;
   padding-left: 5vw;
   padding-top: 1vh;
-  padding-bottom: 20vh;
+  padding-bottom: 25vh;
 }
 /*The div in which we append all the bars*/
 /*.progress-bars {
