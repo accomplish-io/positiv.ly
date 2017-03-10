@@ -187,6 +187,9 @@ input:focus#calen {
   /*margin-bottom: -3000px;*/
 }
 
+article img, aside img {
+  max-width: 85%;
+}
 
 /*The div in which we append all the bars*/
 /*.progress-bars {

@@ -1,0 +1,95 @@
+<!-- about.html -->
+<!-- nav bar -->
+<nav>
+   <div class="nav-wrapper light-blue darken-4" ng-controller="AuthCtrl">
+    <img src="../images/logo.png" alt="Accomplish.life Logo" class="logo">
+    <a href = "#" class="brand-logo, tk-pollen-web, headerTitle">Accomplish.Life</a>
+    <ul id="nav-mobile" class="right hide-on-small-and-down" style="margin-right: 30px;">
+      <li><a class="tk-pollen-web" ui-sref="home">Goal Dashboard</a></li>
+      <li ><a class="tk-pollen-web" ng-if="vm.displayLoginButton()" ui-sref="auth">Log In</a></li>
+      <li ><a class="tk-pollen-web" ng-if="!vm.displayLoginButton()" ui-sref="auth" ng-click="authService.logout()">Log Out</a></li>
+    </ul>
+  </div>
+</nav>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+ <div id="theteam" class="center" >
+      <section class="row">
+        <article class="col s3">
+          <img src="../assets/dan.jpg" class="circle" style="border:2px solid white">
+          <div class="row">
+            <div class="col">
+              <div class="card" style="background-color: #01579b">
+                <div class="card-content white-text">
+                  <span class="card-title">Dan</span>
+                    <p>I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively.</p>
+                </div>
+                <div class="card-action">
+                  <a href="https://github.com/danjumamilhaus" target="_blank">Check out my github!</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="col s3">
+          <img src="../assets/elizabeth.jpg" class="circle" style="border:2px solid white">
+          <div class="row">
+            <div class="col">
+              <div class="card" style="background-color: #01579b">
+                <div class="card-content white-text">
+                  <span class="card-title">Elizabeth</span>
+                    <p>I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively.</p>
+                </div>
+                <div class="card-action">
+                  <a href="https://github.com/ekakerman" target="_blank">Check out my github!</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="col s3">
+          <img src="../assets/andrew.jpg" class="circle" style="border:2px solid white">
+          <div class="row">
+            <div class="col">
+              <div class="card" style="background-color: #01579b">
+                <div class="card-content white-text">
+                  <span class="card-title">Andrew</span>
+                    <p>I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively.</p>
+                </div>
+                <div class="card-action">
+                  <a href="https://github.com/apsplagle" target="_blank">Check out my github!</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="col s3">
+          <img src="../assets/eric.jpg" class="circle" style="border:2px solid white">
+          <div class="row">
+            <div class="col">
+              <div class="card" style="background-color: #01579b">
+                <div class="card-content white-text">
+                  <span class="card-title">Eric</span>
+                    <p>I am from New Jersey. I like to make super smoothies and play blues guitar!</p>
+                </div>
+                <div class="card-action">
+                  <a href="https://github.com/CodeRunner00" target="_blank">Check out my github!</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </div>
+
+
